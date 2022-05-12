@@ -1,4 +1,6 @@
 RailsAdmin.config do |config|
+    redirect_to main_app.root_path unless warden.user.admin == true
+  end
   config.asset_source = :sprockets
 
   ### Popular gems integration
