@@ -8,11 +8,10 @@ gem "rails", "~> 7.0.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-gem "devise"
-gem "rails_admin"
+
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+#gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -45,7 +44,27 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "rails_admin"
+gem "appraisal", ">= 2.0"
+gem "devise", "~> 4.8"
+
+gem "webpacker", require: false
+gem "webrick", "~> 1.7"
+
+
+group :active_record do
+  gem "paper_trail", ">= 12.0"
+  gem "pg", ">= 1.0.0", platforms: :ruby
+
+ #platforms :ruby, :mswin, :mingw, :x64_mingw do
+  #  gem "mysql2", ">= 0.3.14"
+   # gem "sqlite3", ">= 1.3"
+  #end
+end
+
+group :development, :test do
+  gem "pry", ">= 0.9"
+end
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -68,8 +87,11 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+ 
+  
+  gem 'rubocop', ['~> 1.20', '!= 1.22.2'], require: false
+  gem 'timecop', '>= 0.5'
+
 end
+gem 'sassc', '~> 2.4'
 gem "sassc-rails"
